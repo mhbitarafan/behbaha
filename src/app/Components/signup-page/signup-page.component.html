@@ -1,0 +1,28 @@
+<div class="container-fluid row flex-column align-items-center m-0 p-lg-0 p-4 mt-md-5 mt-2 mb-5 pb-5">
+  <a routerLink="/login" class="col-12 col-lg-5 mb-3 card-link text-dark text-right h5"><span class="">قبلا ثبت نام کرده اید؟ وارد شوید</span></a>
+  <mat-card class="mat-elevation-z8 col-12 col-lg-5 border p-4">
+    <mat-card-title class="text-right">ثبت نام</mat-card-title>
+    <div class="row">
+      <mat-form-field [floatLabel]="'always'" class="pt-3 mt-3 col-12">
+        <mat-label style="font-size: 1.3em;">نام و نام خانوادگی</mat-label>
+        <input appAutofocus matInput class="pt-1" type="text">
+      </mat-form-field>
+      <mat-form-field [floatLabel]="'always'" class="pt-4 mt-3 col-12">
+        <mat-label style="font-size: 1.3em;">ایمیل</mat-label>
+        <input matInput class="pt-1" type="text">
+      </mat-form-field>
+      <mat-form-field [floatLabel]="'always'" class="pt-4 mt-3 col-12">
+        <mat-label style="font-size: 1.3em;">تلفن</mat-label>
+        <input matInput class="pt-1" type="text">
+      </mat-form-field>
+      <mat-form-field [floatLabel]="'always'" class="pt-4 mt-3 col-12">
+        <mat-label style="font-size: 1.3em;">رمز عبور</mat-label>
+        <input matInput class="pt-1" type="text">
+      </mat-form-field>
+      <div class="col-12 p-2 px-4 mt-4 text-right">
+        <button class="py-0 px-4" style="font-size: 1.15em;" mat-raised-button color="primary">ثبت نام</button>
+      </div>
+    </div>
+  </mat-card>
+</div>
+

@@ -1,0 +1,10 @@
+<mat-form-field [floatLabel]="'never'" class="col-12 align-bottom" >
+  <mat-select placeholder="انتخاب دسته محصول" [(ngModel)]="SelectedCategories" [compareWith]="compareWithFunc" multiple>
+    <mat-select-trigger>
+      {{SelectedCategories.length === 5 ? 'همه محصولات' : SelectedCategories}}
+    </mat-select-trigger>
+    <mat-option value="همه محصولات" (click)="toggleAll()">همه محصولات</mat-option>
+    <mat-option (click)="toggle()" *ngFor="let topping of toppingList" [value]="topping.name">{{topping.name}}</mat-option>
+  </mat-select>
+</mat-form-field>
+

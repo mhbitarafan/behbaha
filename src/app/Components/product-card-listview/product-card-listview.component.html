@@ -1,0 +1,29 @@
+<mat-card class="mat-elevation-z6 p-0 m-0" dir="rtl">
+  <div class="row m-0">
+    <div class="col col-lg-3"><img mat-card-image class="p-img p-0 m-0 w-100" [src]="'assets/' + productArray[randomNumber].i" alt="fruit"></div>
+    <div class="col p-1">
+      <mat-card-title #title class="p-2 m-0 text-right">{{productArray[randomNumber].t}} نمونه {{productArray[randomNumber].c}}</mat-card-title>
+      <mat-card-content #price class="p-2 text-right">{{randPrice}} تومان / کیلو </mat-card-content>
+    </div>
+    <mat-card-actions class="bg-dgrey p-2 m-0 col-12 col-md">
+      <div class="position-relative text-center">
+        <input #amount class="py-2 border text-left border-grey rounded-pill w-100 amountInput" type="text" placeholder="مقدار سفارش" [matAutocomplete]="auto">
+        <mat-autocomplete class="mt-1" #auto="matAutocomplete">
+          <mat-option value="1">1 کیلوگرم</mat-option>
+          <mat-option value="2">2 کیلوگرم</mat-option>
+          <mat-option value="3">3 کیلوگرم</mat-option>
+          <mat-option value="4">4 کیلوگرم</mat-option>
+          <mat-option value="5">5 کیلوگرم</mat-option>
+        </mat-autocomplete>
+        <div class="position-absolute d-flex flex-row h-100" style="left: 0;top: 0; z-index: 999">
+          <span class="px-2 my-1 border-right border-grey py-1">kg</span>
+          <button (click)="addtoCart(title, price, amount)" class="btn btn-success p-0 m-0 basketBtn" matTooltip="افزودن به سبد خرید" matTooltipPosition="above"><img width="30" src="assets/ic_shopping_cart_white_48dp.png"></button>
+        </div>
+      </div>
+      <div *ngIf="!general.isMobile()" class="text-center mt-2">
+        سفارش تاکنون:<br>
+       <span dir="ltr"> 100 kg / 500 kg</span>
+      </div>
+    </mat-card-actions>
+  </div>
+</mat-card>

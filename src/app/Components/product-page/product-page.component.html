@@ -1,0 +1,14 @@
+<div *ngIf="!general.isMobile()" class="p-2 px-2 px-lg-3 d-flex align-items-center justify-content-sm-between justify-content-end w-100 bg-dgrey border-bottom border-grey shadow">
+  <div *ngIf="!general.isMobile()">
+    <button mat-raised-button class="p-0" (click)="general.listView()"><img class="col-auto p-0" style="width: 42px" src="assets/ic_view_list_black_48dp.png"></button>
+    <button mat-raised-button class="p-0 mx-2" (click)="general.gridView()"><img class="col-auto p-0" style="width: 42px" src="assets/grid-icon.png"></button>
+  </div>
+  <div>
+    <button *ngIf="!general.isMobile()" class="btn btn-warning rounded-pill mr-2">جدیدترین ها</button>
+    <button *ngIf="!general.isMobile()" class="btn btn-danger rounded-pill">ویژه ها</button>
+  </div>
+</div>
+<div class="p-2 px-lg-4 px-2 col" [ngStyle]="{'height.px': this.general.remainingHeight - 62}">
+  <app-product-grid *ngIf="general.showGrid" class="col-auto row justify-content-end p-0 m-0 mb-3"></app-product-grid>
+  <app-product-list *ngIf="general.showList" class="col-auto row justify-content-end p-0 m-0 mb-3"></app-product-list>
+</div>

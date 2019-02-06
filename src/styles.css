@@ -1,0 +1,58 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import url( 'https://fonts.googleapis.com/css?family=Roboto:400,700|Material+Icons');
+@import "~nouislider/distribute/nouislider.min.css";
+@font-face {
+  font-family: yekan;
+  src: url(assets/Yekan.woff);
+}
+* {
+  font-family: yekan;
+}
+.mat-form-field-infix {
+  border-top: 0!important;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding: 0!important;
+}
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  bottom: 0!important;
+}
+.bg-grey {
+  background-color: #e6e6e6!important;
+}
+.border-grey {
+  border-color: #b9b9b9!important;
+}
+.bg-dgrey {
+  background: #e1e1e1 !important;
+}
+.mat-pseudo-checkbox-checked::after {
+  width: 9px!important;
+  height: 5px!important;
+}
+.mat-select-value {
+  padding-bottom: 0.3rem;
+}
+body {
+  overflow: hidden;
+}
+.mat-tooltip {
+  font-size: 12px;
+  font-family: yekan;
+}
+.dropdown-divider {
+  border-color: #d5d5d5 !important;
+}
+.ng5-slider .ng5-slider-pointer {
+  width: 20px!important;
+  height: 20px!important;
+  top: -9px!important;
+}
+.ng5-slider .ng5-slider-pointer:after {
+  top: 6px!important;
+  left: 6px!important;
+}
+.ng5-slider .ng5-slider-pointer.ng5-slider-active:after {
+  background: white!important;
+}

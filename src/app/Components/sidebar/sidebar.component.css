@@ -1,0 +1,9 @@
+.cat-list li > a:hover {
+  background: #dfdfdf;
+}
+.border-grey {
+  border-color: #d8d8d8 !important;
+}
+.cat-list li {
+  list-style: none;
+}

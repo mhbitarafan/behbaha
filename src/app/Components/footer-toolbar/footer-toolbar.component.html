@@ -1,0 +1,8 @@
+<div id="footerToolbar" #footer class="bg-grey m-0 p-0 w-100 border-top position-fixed" style="bottom: 0;z-index: 9999;">
+  <div class="row m-0 border-top border-grey">
+    <div class="col p-0 text-center border-left border-grey"><button (click)="general.showCatbar();general.toggleSidebar()" class="btn w-100 p-1 d-flex flex-column flex-sm-row justify-content-center align-items-center card-link h-6 text-dark font-weight-bold"><img width="32" src="assets/ic_view_list_black_48dp.png" class="ml-sm-2 ml-1"><span class="p-0 col-auto">دسته بندی</span></button></div>
+    <div class="col p-0 text-center border-left border-grey"><button (click)="general.showFilterbar();general.toggleSidebar()" class="btn w-100 p-1 d-flex justify-content-center flex-column flex-sm-row align-items-center card-link text-dark font-weight-bold"><img width="27" style="padding-top: 0.1em;" src="assets/icons8-filter-filled-50.png" class="ml-sm-2 ml-1"><span style="padding-top: 0.2em!important;" class="p-0 col-auto">فیلترگذاری</span></button></div>
+    <div class="col p-0 text-center border-left border-grey"><a routerLink="/cart" class="btn w-100 p-1 d-flex flex-column flex-sm-row justify-content-center align-items-center card-link text-dark font-weight-bold"><img width="32" src="assets/ic_shopping_cart_black_48dp.png" class="ml-sm-2 ml-1"><span class="p-0 col-auto">سبد خرید</span></a></div>
+    <div class="col p-0 text-center"><a routerLink="/login" class="btn w-100 p-1 d-flex justify-content-center flex-column flex-sm-row align-items-center card-link text-dark font-weight-bold"><img width="32" src="assets/ic_account_circle_black_48dp.png" class="ml-sm-2 ml-1"><span class="p-0 col-auto">حساب کاربری</span></a></div>
+  </div>
+</div>

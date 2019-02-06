@@ -1,0 +1,23 @@
+.mat-card-title {
+  font-size: 18px!important;
+}
+.border-grey {
+  border-color: #b9b9b9!important;
+}
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+  box-shadow: 0 0 1px #808080;
+  outline: 0 none;
+}
+.basketBtn {
+  border-radius: 500px 0 0 500px!important;
+  padding-left: .7rem!important;
+  padding-right: .3rem!important;
+}
+.amountInput {
+  padding-left: 88px;
+  direction: ltr;
+}
+.p-img {
+  height: 200px;
+  object-fit: scale-down;
+}

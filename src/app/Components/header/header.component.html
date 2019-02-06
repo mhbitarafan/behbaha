@@ -1,0 +1,42 @@
+<div id="navbar" #navbar class="m-0 p-0 border-bottom border-grey shadow-sm">
+  <div class="row pt-2 pb-2 px-1 m-0 px-md-3 align-items-center justify-content-between justify-content-sm-center">
+    <div class="col-auto order-6 order-sm-0 text-right ml-2 ml-md-3 p-0"><a class="text-dark font-weight-bold card-link" dir="ltr" style="font-size: 1.2em;" routerLink="/">BEHBAHA</a></div>
+    <form *ngIf="!general.isMobile()" class="col order-md-1 border-0 p-0 m-0 ml-2">
+      <input type="text" placeholder="جستجو ..." class="searchInput rounded-pill border-grey w-100 m-0 p-2 px-3 h5 border">
+      <button class="position-absolute btn btn-light border border-grey h-100 py-1 px-2 searchBtn" style="left:0;top:0px;"><img width="30" style="padding-top:0.1rem" src="assets/ic_search_black_48dp.png"></button>
+    </form>
+    <div class="col-auto row order-2" *ngIf="this.general.isDesktop()">
+       </div>
+    <div class="col-auto row p-0 m-0 order-2">
+    <button class="btn p-1 mx-1 mt-1" (click)="toggleFilter()"><img width="25" src="assets/slider--filled-50.png"></button>
+      <div *ngIf="showFilters" style="left:0;top: 45px;z-index: 999" class="position-absolute bg-white border-bottom border-grey p-0 m-0 pt-2 pb-3 text-right pr-3">
+        <app-filters></app-filters>
+      </div>
+    </div>
+    <div class="col-auto m-0 order-4 p-0 justify-content-end align-items-center row flex-nowrap">
+      <div class="col row justify-content-end links ml-2 flex-nowrap" *ngIf="this.general.isDesktop()">
+        <div class="col-auto p-0 mx-2"><a class="card-link text-dark" href="">تماس با ما</a></div>
+        <div class="col-auto p-0 mx-2"><a class="card-link text-dark" href="">درباره ما</a></div>
+        <div class="col-auto p-0 mx-2"><a class="card-link text-dark" href="">بلاگ</a></div>
+      </div>
+      <div class="col-auto p-0 mx-2" *ngIf="this.general.isTablet()"><a routerLink="login"><img src="assets/ic_account_circle_black_48dp.png" width="38"></a></div>
+      <div class="col-auto p-0 ml-2" *ngIf="this.general.isTablet()"><a routerLink="cart"><img src="assets/ic_shopping_cart_black_48dp.png" width="38"></a></div>
+      <div class="col-auto p-0 order-sm-5 order-0" *ngIf="!this.general.isDesktop()">
+        <button class="btn p-0" [matMenuTriggerFor]="menu"><img width="40" src="assets/ic_menu_black_48dp.png"></button>
+        <mat-menu #menu="matMenu">
+          <a mat-menu-item class="card-link text-dark" href="">تماس با ما</a>
+          <a mat-menu-item class="card-link text-dark" href="">درباره ما</a>
+          <a mat-menu-item class="card-link text-dark" href="">بلاگ</a>
+        </mat-menu>
+      </div>
+    </div>
+    <button *ngIf="general.isMobile()" (click)="toggleSearch()" class="btn order-6 pl-1 p-0 col-auto"><img width="30" style="padding-top:0.1rem" src="assets/ic_search_black_48dp.png"></button>
+    <form *ngIf="showSearchbar" class="position-absolute bg-white w-100" style="top: 0; left: 0; z-index: 999;">
+      <mat-form-field [floatLabel]="'never'" class="m-0 py-2 col">
+        <input matInput class="py-1" placeholder="جستجو ...">
+      </mat-form-field>
+      <button class="position-absolute btn h-100 py-1 px-2" (click)="toggleSearch()" style="left:5px;top:5px;"><mat-icon>close</mat-icon></button>
+    </form>
+</div>
+</div>
+

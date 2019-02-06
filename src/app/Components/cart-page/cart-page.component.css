@@ -1,0 +1,19 @@
+.mat-column-position {
+  width: 50px;
+}
+.mat-column-weight {
+  width: 200px;
+}
+.mat-column-name {
+  width: 150px;
+  word-break: break-word;
+}
+.mat-column-price {
+  width: 150px;
+}
+.mat-column-priceAll {
+  width: 200px;
+}
+.mat-column-remove {
+  width: 20px;
+}

@@ -1,0 +1,9 @@
+<app-header></app-header>
+<main class="row m-0" [ngStyle]="{'height.px': this.general.remainingHeight}">
+    <app-sidebar *ngIf="this.general.isTablet() || this.general.showSidebar" [ngStyle]="{'height.px': this.general.remainingHeight + 10}" class="col-md-3 col-lg-2 col-12 mb-2  bg-grey text-right border-grey p-0"></app-sidebar>
+  <article dir="ltr" class="overflow-auto w-100 col justify-content-end bg-light m-0 p-0 border-right">
+    <router-outlet></router-outlet>
+  </article>
+</main>
+<app-footer-toolbar *ngIf="!this.general.isTablet()"></app-footer-toolbar>
+<app-notifications *ngIf="general.showNotification" class="fixed-bottom justify-content-end"></app-notifications>

@@ -1,0 +1,74 @@
+<div class="mat-elevation-z5 m-0 p-0 px-4 m-3 align-items-center d-flex flex-column bg-light" [ngStyle]="{'min-height.px': this.general.remainingHeight - 50}">
+  <h4 class="p-3 text-right col-12 col-lg-11 m-0 h-50">سبد خرید</h4>
+  <div class="ol-12 col-lg-11 text-right" *ngIf="iscartEmpty">سبد خرید خالی است</div>
+  <table *ngIf="general.isTablet() && !iscartEmpty" mat-table [dataSource]="dataSource" class="col-12 col-lg-11 mt-0 mt-lg-2 py-5 mat-elevation-z3">
+    <ng-container matColumnDef="remove">
+      <th mat-header-cell *matHeaderCellDef class="text-center p-0 h3"></th>
+      <td class="p-0 h6 text-center" mat-cell *matCellDef="let element">
+        <button type="button" (click)="removeFromCart(element.position - 1)" class="btn">
+          <span class="h3">&times;</span>
+        </button>
+      </td>
+      <td class="p-0 h6 text-right font-weight-bold" dir="rtl" mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef class="text-center p-0 h3"> # </th>
+      <td class="p-0 h6 text-center" mat-cell *matCellDef="let element">
+        {{element.position}}
+      </td>
+      <td class="p-0 h6 text-center font-weight-bold" mat-footer-cell *matFooterCellDef> جمع کل </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th class="p-0 h5" mat-header-cell *matHeaderCellDef> نام محصول </th>
+      <td class="p-0 h6 text-right" mat-cell *matCellDef="let element">
+        {{element.name}}
+      </td>
+      <td class="p-0 h6 text-right font-weight-bold" dir="rtl" mat-footer-cell *matFooterCellDef>{{getTotal()}} تومان </td>
+    </ng-container>
+
+    <ng-container matColumnDef="weight">
+      <th class="p-0 h5" mat-header-cell *matHeaderCellDef> مقدار سفارش </th>
+      <td class="p-0 h6 text-right" mat-cell *matCellDef="let element"><span class="align-middle pr-2"> کیلوگرم </span><input (input)="updateCart(element.position - 1, element.weight)" class="w-50 mat-elevation-z4 text-center p-2" matInput type="text" [(ngModel)]="element.weight"></td>
+      <td class="p-0 h6 text-right font-weight-bold" dir="rtl" mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th class="p-0 h5" mat-header-cell *matHeaderCellDef> قیمت واحد </th>
+      <td class="p-0 h6 text-right" mat-cell *matCellDef="let element"><span dir="rtl">  {{element.price}} تومان </span></td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <ng-container matColumnDef="priceAll">
+      <th class="p-0 h5" mat-header-cell *matHeaderCellDef> قیمت کل </th>
+      <td class="p-0 h6 text-right" mat-cell *matCellDef="let element"><span dir="rtl">  {{element.price * element.weight}} تومان </span></td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+  </table>
+<ng-container *ngFor="let element of dataSource" class="mat-elevation-z1">
+  <div *ngIf="!general.isTablet() && !iscartEmpty" class="col-12 mt-1 row justify-content-center m-0 p-0 py-1">
+    <div class="col row flex-column justify-content-center align-items-center">
+      <div class="border col p-2 text-right">
+        <button (click)="removeFromCart(element.position - 1)" type="button" class="btn p-0 m-0">
+        <span class="h3">&times;</span>
+      </button>
+      </div>
+      <div class="border col p-2 text-right">{{element.position}}</div>
+      <div class="border col p-2 text-right">{{element.name}}</div>
+      <div class="border col p-2 text-right d-flex m-0 justify-content-end align-items-center" style="height: 50px;"><span class="align-middle pr-2"> کیلوگرم </span><input (input)="updateCart(element.position - 1, element.weight)" class="text-center" style="width: 100px;" matInput type="text" [(ngModel)]="element.weight"></div>
+      <div class="border col p-2 text-right"><span dir="rtl">  {{element.price}} تومان </span></div>
+      <div class="border col p-2 text-right"><span dir="rtl">  {{element.price * element.weight}} تومان </span></div>
+    </div>
+    <div class="col-auto row flex-column">
+      <div class="border col-auto p-2 text-center" style="height: 54px;">حذف</div>
+      <div class="border col-auto p-2 text-center"> # </div>
+      <div class="border col-auto p-2 text-center"> نام محصول </div>
+      <div class="border col-auto p-2 text-center" style="height: 50px;"> مقدار سفارش </div>
+      <div class="border col-auto p-2 text-center"> قیمت واحد </div>
+      <div class="border col-auto p-2 text-center"> قیمت کل </div>
+    </div>
+  </div>
+</ng-container>
+</div>

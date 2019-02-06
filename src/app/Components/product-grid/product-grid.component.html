@@ -1,0 +1,23 @@
+<div *ngFor="let item of this.general.productlist" class="col-12 col-xl-3 col-lg-3 col-md-4 col-sm-6 p-2">
+  <mat-card class="p-0 m-0 mat-elevation-z6" dir="rtl">
+    <img mat-card-image class="p-img p-0 m-0 w-100" [src]="item.img_url" alt="fruit">
+    <mat-card-title #title class="p-2 m-0 text-center">{{item.product_name}}</mat-card-title>
+    <mat-card-content #price class="text-center">{{item.price}} تومان </mat-card-content>
+    <mat-card-actions class="bg-dgrey p-2 m-0">
+      <div class="position-relative text-center">
+        <input #amount class="py-2 border text-left border-grey rounded-pill w-100 amountInput" type="text" placeholder="مقدار سفارش" [matAutocomplete]="auto">
+        <mat-autocomplete class="mt-1" #auto="matAutocomplete">
+          <mat-option value="1">1 کیلوگرم</mat-option>
+          <mat-option value="2">2 کیلوگرم</mat-option>
+          <mat-option value="3">3 کیلوگرم</mat-option>
+          <mat-option value="4">4 کیلوگرم</mat-option>
+          <mat-option value="5">5 کیلوگرم</mat-option>
+        </mat-autocomplete>
+        <div class="position-absolute d-flex flex-row h-100" style="left: 0;top: 0; z-index: 999">
+          <span class="px-2 my-1 border-right border-grey py-1">kg</span>
+          <button (click)="product.addtoCart(title, price, amount)" class="btn btn-success p-0 m-0 basketBtn" matTooltip="افزودن به سبد خرید" matTooltipPosition="above"><img width="30" src="assets/ic_shopping_cart_white_48dp.png"></button>
+        </div>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

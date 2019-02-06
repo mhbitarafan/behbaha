@@ -1,0 +1,55 @@
+<aside class="sidebar overflow-auto" style="overflow-x: hidden!important;" [ngStyle]="{'height.px': this.general.remainingHeight}" dir="ltr">
+  <div dir="rtl" [ngStyle]="{'height.px': this.general.remainingHeight}">
+    <ul *ngIf="general.showCat" class="cat-list list-group p-0 border-right-0 pb-2">
+      <li class="p-0"><a class="card-link text-dark d-block p-3 border-bottom border-grey" href="#">میوه جات</a></li>
+      <li class="p-0"><a class="card-link text-dark d-block p-3 border-bottom border-grey" href="#">سبزیجات</a></li>
+      <li class="p-0"><a class="card-link text-dark d-block p-3 border-bottom border-grey" href="#">صیفی جات</a></li>
+      <li class="p-0"><a class="card-link text-dark d-block p-3 border-bottom border-grey" href="#">خشکبار و آجیل</a></li>
+    </ul>
+    <div *ngIf="general.showFilters" class="border-bottom border-grey pb-3">
+      <div class="p-0 px-1 mt-2 d-flex justify-content-between font-weight-bold">
+        <span class="col-auto">قیمت</span>
+        <img style="width: 60px;" class="col-auto h-100" src="assets/iconfinder_money_bag_309025.png">
+      </div>
+      <div class="px-3 mt-3">
+        <div class="row">
+          <mat-form-field [floatLabel]="'always'" class="mt-2 col">
+            <mat-label>حداقل قیمت</mat-label>
+            <input matInput placeholder="0" [(ngModel)]="minValue" [matAutocomplete]="auto">
+            <span matSuffix>تومان</span>
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option value="1000">1000 تومان</mat-option>
+              <mat-option value="5000">5000 تومان</mat-option>
+              <mat-option value="10000">10000 تومان</mat-option>
+              <mat-option value="15000">15000 تومان</mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <mat-form-field [floatLabel]="'always'" class="col mt-4">
+            <mat-label>حداکثر قیمت</mat-label>
+            <input matInput placeholder="15000" [(ngModel)]="maxValue" [matAutocomplete]="auto">
+            <span matSuffix>تومان</span>
+            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <mat-icon class="mt-2 pb-55">close</mat-icon>
+            </button>
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option value="5000">5000 تومان</mat-option>
+              <mat-option value="10000">10000 تومان</mat-option>
+              <mat-option value="15000">15000 تومان</mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <div class="col-auto w-100 mt-3 px-2">
+            <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+            <button class="mt-3" color="primary" mat-raised-button>اعمال فیلترها</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-2">
+      <span class="col-12 mt-2 pt-2">دانلود اپلیکیشن</span>
+      <div class="row p-0 mr-1 px-2 col-12 justify-content-center mt-2">
+        <a href="" class="text-center p-0 col-6 w-100 d-flex"><img class="w-100 align-self-center" src="assets/play_logo_16_9-5image2.png"></a>
+        <a href="" class="text-center p-0 col-6 w-100"><img class="w-75" src="assets/bazaar-logo.png"></a>
+      </div>
+    </div>
+  </div>
+</aside>
