@@ -6,12 +6,10 @@ import {AppSettings} from '../AppSettings';
 @Injectable({
   providedIn: 'root'
 })
-export interface ProductName {
-  product: any;
-};
+
 export class ProductQueryService {
   private price: any;
-  private product_name: ProductName;
+  private product_name: any;
   private products: any[];
   private image: any;
   constructor(private http: HttpClient) { }
@@ -23,12 +21,11 @@ export class ProductQueryService {
     return this.http.get(url).pipe(map(
       (product) => {
         this.products = [];
-        for (const i in product.products) {
-          this.product_name = product.products[i].name[0].value;
-          this.price = Math.round(product.products[i].price);
-          const pid = product.products[i].id;
-          const img_id = product.products[i].id_default_image;
-          console.log(img_id);
+        for (const i in product['products']) {
+          this.product_name = product['products'][i].name;
+          this.price = Math.round(product['products'][i].price);
+          const pid = product['products'][i].id;
+          const img_id = product['products'][i].id_default_image;
           this.image = AppSettings.base_host + '/api/images/products/' + pid + '/' + img_id + '?&ws_key=' + AppSettings.api_key
           this.products.push({
             product_name: this.product_name,

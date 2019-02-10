@@ -7,8 +7,8 @@
     </form>
     <div class="col-auto row order-2" *ngIf="this.general.isDesktop()">
        </div>
-    <div class="col-auto row p-0 m-0 order-2">
-    <button class="btn p-1 mx-1 mt-1" (click)="toggleFilter()"><img width="25" src="assets/slider--filled-50.png"></button>
+    <div *ngIf="!general.isMobile()" class="col-auto row p-0 m-0 order-2">
+    <button class="btn p-1 mx-1 mt-1" (click)="toggleFilter();general.openfilters()"><img width="25" src="assets/slider--filled-50.png"></button>
       <div *ngIf="showFilters" style="left:0;top: 45px;z-index: 999" class="position-absolute bg-white border-bottom border-grey p-0 m-0 pt-2 pb-3 text-right pr-3">
         <app-filters></app-filters>
       </div>

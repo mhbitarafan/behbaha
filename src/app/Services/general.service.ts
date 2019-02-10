@@ -5,6 +5,7 @@ import {CookieService} from 'ngx-cookie-service';
   providedIn: 'root'
 })
 export class GeneralService {
+filters: any;
 showSidebar = true;
 showCat = false;
 showFilters = false;
@@ -18,6 +19,9 @@ footerHeight = 0;
 remainingHeight = 0;
 message = '';
 showNotification = false;
+openfilters() {
+    this.filters.open();
+  }
 Notification(message, autoHide) {
   this.showNotification = true;
   this.message = message;

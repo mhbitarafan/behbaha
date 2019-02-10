@@ -1,5 +1,5 @@
 <mat-form-field [floatLabel]="'never'" class="col-12 align-bottom" >
-  <mat-select placeholder="انتخاب دسته محصول" [(ngModel)]="SelectedCategories" [compareWith]="compareWithFunc" multiple>
+  <mat-select #filters placeholder="انتخاب دسته محصول" [(ngModel)]="SelectedCategories" [compareWith]="compareWithFunc" multiple>
     <mat-select-trigger>
       {{SelectedCategories.length === 5 ? 'همه محصولات' : SelectedCategories}}
     </mat-select-trigger>

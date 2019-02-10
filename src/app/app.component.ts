@@ -7,6 +7,6 @@ import {GeneralService} from './Services/general.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'behbaha';
+  title = 'untitled';
   constructor(public general: GeneralService) {}
 }
